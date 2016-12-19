@@ -34,6 +34,6 @@ The data file has three main components:
 * LAYING
 
 `Avg_*`:
-These columns have averaged data grouped by SubjectID and ActivityType. The units used for the accelerations (total and body) are 'g's (gravity of earth -> 9.80665 m/seg2).
+These columns have averaged data grouped by SubjectID and ActivityType. The units used for the accelerations (total and body) are 'g's (gravity of earth -> 9.80665 m/s^2).
 
 The names for the column headers take their values from the `features.txt` file provided in the raw data. The column names might be self explanatory for some. However, no attempt was made to make them more human readable since their exact meaning is unknown to this student. More information might be available at the source website noted above.
