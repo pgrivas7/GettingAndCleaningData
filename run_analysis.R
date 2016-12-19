@@ -86,7 +86,7 @@ for (dataType in sourceDataTypes) {
 
 ## Create column names based on the labels in the features.txt file
 dataColumnNames <- read.table(generateFilePath("features.txt"), header = FALSE)
-names(allMeasurements) <- c("source", "subjectnum", "activity", as.character(dataColumnNames[ ,2]))
+names(allMeasurements) <- c("sourceType", "subjectId", "activityType", as.character(dataColumnNames[ ,2]))
 
 ## Keep the first few descriptive columns and also mean and std. deviation columns
 ##   and drop the remaining, unnecessary columns
@@ -101,13 +101,16 @@ names(allMeasurements) <- sub("\\()", "", names(allMeasurements))
 ##              group by subject number and activity type
 #################################################################################
 ## Create the averaged data
-averagedMeasurementData <- aggregate(allMeasurements[, 4:ncol(allMeasurements)], list(allMeasurements$subjectnum, allMeasurements$activity), mean)
+averagedMeasurementData <- aggregate(allMeasurements[, 4:ncol(allMeasurements)], list(allMeasurements$subjectId, allMeasurements$activityType), mean)
+
+colnames(averagedMeasurementData)[3:ncol(averagedMeasurementData)] <- paste("Avg_", colnames(averagedMeasurementData[,3:ncol(averagedMeasurementData)]), sep = "")
+
 
 ## Rename the data frame columsn to be readable
-names(averagedMeasurementData)[1:2] <- c("subjectnum", "activity")
+names(averagedMeasurementData)[1:2] <- c("SubjectID", "Activity")
 
 ## Resort the data frame by subject and activity
-averagedMeasurementData <- averagedMeasurementData[order(averagedMeasurementData$subjectnum, averagedMeasurementData$activity), ]
+averagedMeasurementData <- averagedMeasurementData[order(averagedMeasurementData$SubjectID, averagedMeasurementData$Activity), ]
 
 ## Write the averagedMeasurementData to disk
 write.table(averagedMeasurementData, file = "averagedMeasurementData.txt", row.names = FALSE)
