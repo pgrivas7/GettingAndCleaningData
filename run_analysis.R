@@ -15,8 +15,8 @@ setwd("/Users/pgrivas/Personal/Active Documents/Education/Coursera/Johns Hopkins
 ## Download the data to the working directory if there is not a copy already here
 if (!file.exists("UCI HAR Dataset")) {
         sourceDataTypesURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-        download.file(sourceDataTypesURL, destfile = "SamsungData.zip", method = "curl")
-        unzip("SamsungData.zip")
+        download.file(sourceDataTypesURL, destfile = "UCIHAR.zip", method = "curl")
+        unzip("UCIHAR.zip")
 }
 
 
@@ -107,7 +107,7 @@ colnames(averagedMeasurementData)[3:ncol(averagedMeasurementData)] <- paste("Avg
 
 
 ## Rename the data frame columsn to be readable
-names(averagedMeasurementData)[1:2] <- c("SubjectID", "Activity")
+names(averagedMeasurementData)[1:2] <- c("SubjectID", "ActivityType")
 
 ## Resort the data frame by subject and activity
 averagedMeasurementData <- averagedMeasurementData[order(averagedMeasurementData$SubjectID, averagedMeasurementData$Activity), ]
