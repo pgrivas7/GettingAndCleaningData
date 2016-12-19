@@ -21,9 +21,10 @@ The data file has three main components:
 
 * A subject identifier `SubjectID`
 * An activity type `ActivityType`
-* 64 columns of averaged values grouped and avereaged by SubjectID and ActivityType
+* 64 columns of averaged values grouped by SubjectID and ActivityType
 
 `SubjectID`: is an integer from 1 to 30 representing the subjects in the study. We have no further information on what this value means. It is provided directly from the source data.
+
 `ActivityType`: self explanatory...
 * WALKING
 * WALKING_UPSTAIRS
@@ -31,3 +32,8 @@ The data file has three main components:
 * SITTING
 * STANDING
 * LAYING
+
+`Avg_*`:
+These columns have averaged data grouped by SubjectID and ActivityType. The units used for the accelerations (total and body) are 'g's (gravity of earth -> 9.80665 m/seg2).
+
+The names for the column headers take their values from the `features.txt` file provided in the raw data. The column names might be self explanatory for some. However, no attempt was made to make them more human readable since their exact meaning is unknown to this student. More information might be available at the source website noted above.
