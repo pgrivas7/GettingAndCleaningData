@@ -10,7 +10,8 @@
 rm(list=ls())
 
 ## Set local working directory
-setwd("/Users/pgrivas/Personal/Active Documents/Education/Coursera/Johns Hopkins - Data Science/3. Getting and Cleaning Data/Course Project")
+## COMMENTED ON 12/20/16 @ 10:36 AM EST AFTER REALIZING I HAD LEFT THIS IN
+## setwd("/Users/pgrivas/Personal/Active Documents/Education/Coursera/Johns Hopkins - Data Science/3. Getting and Cleaning Data/Course Project")
 
 ## Download the data to the working directory if there is not a copy already here
 if (!file.exists("UCI HAR Dataset")) {
